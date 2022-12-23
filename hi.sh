@@ -1,5 +1,4 @@
-echo `date`
-
+#!/usr/bash 
 if (($# > 0 )); then
 		if [[ $* =~ "gitpull" ]]; then
 
@@ -24,5 +23,6 @@ if (($# > 0 )); then
 		fi
 		
 else 
+	echo `date`
 	figlet MegaMU
 fi
