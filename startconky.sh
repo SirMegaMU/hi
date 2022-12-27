@@ -1,4 +1,4 @@
 sleep 5
-bash ~/.tooys/ip_addr.sh  > myip
+wget https://ipecho.net/plain -O - -q > myip
 conky -c ~/.conky/.conkyrc
 
