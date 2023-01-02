@@ -1,7 +1,8 @@
 #!/usr/bash 
 if (($# > 0 )); then
 
-	for sourcedir in ./source/*; do
+	# echo ${0/%hi.sh/*} 
+	for sourcedir in ${0/%hi.sh/source/*} ; do
 		if [[ -d $sourcedir ]]; then
 			cd $sourcedir
 			if [[ -e main.sh ]]; then
