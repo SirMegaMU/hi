@@ -1,7 +1,14 @@
 #!/usr/bash 
 if (($# > 0 )); then
 
-	# echo ${0/%hi.sh/source}
+	sources=(`python3 $HOME/.hi/json_parser.py $HOME/.hi/conf.json source`)
+	echo $sources
+
+	for source in $sources 
+	do
+		echo $source
+	done
+
 	for sourcedir in ${0/%hi.sh/source/*} ; do
 		# echo $sourcedir
 		if [[ -d $sourcedir ]]; then
@@ -17,6 +24,6 @@ if (($# > 0 )); then
 	
 else 
 	echo `date`
-	username=(`cat ~/.hi/conf.json | grep "user" | grep -oP '"user" : "(.*)"?'`) ; username=${username[2]:1:-1}
+	username=(`python3 $HOME/.hi/json_parser.py $HOME/.hi/conf.json user`)
 	figlet $username
 fi
